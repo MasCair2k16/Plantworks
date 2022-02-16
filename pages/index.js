@@ -1,15 +1,30 @@
 // import Head from 'next/head'
 // import Image from 'next/image'
 // import styles from '../styles/Home.module.css'
-import PlantForm from '../lib/PlantForm';
+import AddPlant from './NewPlant';
+import 'bootstrap/dist/css/bootstrap.min.css';
+import { Container, Navbar, Nav } from 'react-bootstrap';
 
 export default function Home() {
-  return (
-      <div>
-          <h1>New Plant</h1>
-          <PlantForm/>
-      </div>
-  )
+
+    const isDelegate = false
+    const isLoggedIn = false
+
+    return (
+        <div>
+            <Navbar bg="light" variant="light">
+                <Container>
+                    <Navbar.Brand href="https://plantworks.herokuapp.com/">PlantWorks</Navbar.Brand>
+                    <Nav className="mr-auto">
+                        { isDelegate && <Nav.Link href="home">Add a Plant</Nav.Link> }
+                        <Nav.Link href="#link">Search</Nav.Link>
+                        { isLoggedIn && <Nav.Link href="#logout">Logout</Nav.Link> || <Nav.Link href="#Login">Login</Nav.Link> }
+                    </Nav>
+                </Container>
+            </Navbar>
+            <AddPlant/>
+        </div>
+    )
     // <div className={styles.container}>
     //   <Head>
     //     <title>Create Next App</title>
