@@ -7,12 +7,12 @@ import React, { useEffect } from 'react';
 // } from "react-router-dom";
 import {Form, Button} from 'react-bootstrap';
 import { handleFetchPosts } from '../lib/PlantForm';
-import style from '../styles/newPlant.module.css';
+import Style from '../styles/NewPlant.module.css';
 
 function NewPlant() {
     return (
         <div>
-            <Form onSubmit={handleFetchPosts} className={style.grid}>
+            <Form onSubmit={handleFetchPosts} className={Style.grid}>
             <Form.Group className="mb-2">
                 <Form.Label>Plant Name</Form.Label>
                 <Form.Control type="text" name="name" placeholder="name" />
