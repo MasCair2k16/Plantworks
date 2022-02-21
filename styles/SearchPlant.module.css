@@ -1,0 +1,16 @@
+.header {
+    background-color: #f8f9fa;
+    padding-right: 2rem;
+    padding-bottom: 1rem;
+    border-radius: 15px 15px 0 0;
+}
+
+.grid {
+    display: flex;
+    justify-content: center;
+    flex-wrap: wrap;
+    flex-direction: column;
+    background-color: #f8f9fa;
+    padding: 2rem;
+    border-radius: 0 0 15px 15px;
+}
