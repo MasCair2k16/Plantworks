@@ -58,7 +58,7 @@ function NewPlant() {
                 <Form onSubmit={handleFetchPosts} className={Style.grid}>
                     <div className={Style.header}>
                         <h1>Add a Plant</h1>
-                        <span>Thank you! You&apos;re helping many others how to care for their little Green friends!</span>
+                        <span>Thank you! You&apos;re helping many others care for their little green friends!</span>
                     </div>
                     <hr />
                     <Form.Group className="mb-2">
