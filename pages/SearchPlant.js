@@ -2,6 +2,7 @@ import React, { useState, useEffect } from 'react';
 import { Form, ListGroup } from 'react-bootstrap';
 import NavigationBar from '../components/NavigationBar'
 import Style from '../styles/SearchPlant.module.css';
+import Image from 'next/image';
 
 function SearchPlant() {
 
@@ -13,12 +14,12 @@ function SearchPlant() {
         if (q.length > 2) {
           const params = new URLSearchParams({ q });
 
-          let url = `${process.env.NEXT_PUBLIC_API_URL}/api/search?`;
-          let urlIndex = `${process.env.NEXT_PUBLIC_API_URL}/api/index`;
+          let url = `${process.env.NEXT_PUBLIC_API_URL}api/search?`;
+          let urlIndex = `${process.env.NEXT_PUBLIC_API_URL}api/createIndex`;
 
           if (location.hostname === "localhost" || location.hostname === "127.0.0.1")
               url = '/api/search?';
-              urlIndex = '/api/index';
+              urlIndex = '/api/creatIndex';
           
           // TODO: check if sessions storage has called API INDEX!
           try {
@@ -52,9 +53,16 @@ function SearchPlant() {
               <ListGroup.Item>{hit.name}</ListGroup.Item>
               <ListGroup.Item>{hit.type}</ListGroup.Item>
               <ListGroup.Item>{hit.description}</ListGroup.Item>
-              <ListGroup.Item><image src={"../public/favicon.ico"} /></ListGroup.Item>
               <ListGroup.Item>{hit.shade}</ListGroup.Item>
               <ListGroup.Item>{hit.waterFrequency}</ListGroup.Item>
+              <ListGroup.Item>
+                <Image 
+                  src="/../public/favicon_io/android-chrome-192x192.png" 
+                  width="16" 
+                  height="16" 
+                  alt="Image" 
+                />
+              </ListGroup.Item>
             </ListGroup>
           ))}
       </div>
