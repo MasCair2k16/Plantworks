@@ -1,15 +1,41 @@
 .container {
   display: flex;
-  justify-content: space-around;
-  flex-direction: row;
   font-family: sans-serif;
-  font-size: 20% !important;
+  justify-content: space-between;
+  flex-wrap: wrap;
+}
+
+.title {
+  font-size: 4rem;
+  font-weight: bold;
 }
 
 .description {
   font-family: sans-serif;
+  font-size: 1.5rem;
+  padding-top: 2rem;
 }
 
+/* change margin on different device screens */
 .homeContainer {
-  margin: 2rem;
+  margin: 4rem 12rem;
+}
+
+.steps {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  padding-top: 7rem;
+  flex-wrap: wrap;
+}
+
+.stepBox {
+  border-radius: .5rem;
+  height: 10rem;
+  width: 20rem;
+  margin-bottom: 4rem;
+  padding: 2rem;
+  background-color: #f8f9fa;
+  border-radius: .5rem;
+  border: 1px solid #15bb0c;
 }
