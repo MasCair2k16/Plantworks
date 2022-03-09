@@ -17,7 +17,7 @@ export default function Home() {
     return (
         <Navbar bg="light" variant="light" expand={true}>
             <Container>
-                <Navbar.Brand href="https://plantworks.herokuapp.com/">PlantWorks</Navbar.Brand>
+                <Navbar.Brand href="https://plantworks.vercel.app/">PlantWorks</Navbar.Brand>
                 <Nav className="mr-auto">
                     { isAuth && <Nav.Link href="../NewPlant">Add Plant</Nav.Link> }
                     { isLoggedIn && <Nav.Link href="../MyCollection">My Collection</Nav.Link> }
