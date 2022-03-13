@@ -53,6 +53,7 @@ function SearchPlant() {
               <ListGroup.Item>{hit.name}</ListGroup.Item>
               <ListGroup.Item>{hit.type}</ListGroup.Item>
               <ListGroup.Item>{hit.description}</ListGroup.Item>
+              <ListGroup.Item><image width="80" height="80" alt="Plant Image" src={`data:image/jpeg;base64,/9j/${hit.image}`}/></ListGroup.Item>
               <ListGroup.Item>{hit.shade}</ListGroup.Item>
               <ListGroup.Item>{hit.waterFrequency}</ListGroup.Item>
               <ListGroup.Item>

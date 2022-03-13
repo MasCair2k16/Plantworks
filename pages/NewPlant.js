@@ -1,4 +1,5 @@
 import React, { useState, useEffect } from 'react';
+import imageToBase64 from 'image-to-base64/browser';
 import {Form, Button, Alert} from 'react-bootstrap';
 import Style from '../styles/NewPlant.module.css';
 import NavigationBar from '../components/NavigationBar'
@@ -7,6 +8,7 @@ function NewPlant() {
 
     const [alert, setAlert] = useState(false)
     const [response, setResponse] = useState('200')
+    const [selectedFile, setSelectedFile] = useState(null)
 
     useEffect(() => {
         console.log("RESPONSE CODE", response);
@@ -17,7 +19,7 @@ function NewPlant() {
         event.preventDefault(); // submit without reloading the page
         const form = new FormData(event.target);
         const formData = Object.fromEntries(form.entries());
-    
+        formData = {...formData, image: selectedFile}
         console.log(formData);
         let url = `${process.env.NEXT_PUBLIC_API_URL}/api/plants`;
     
@@ -47,6 +49,23 @@ function NewPlant() {
         document.body.scrollTop = 0;
     }
 
+    /**
+     * 
+     * @param {*} e - event target of image element
+     */
+    const onImageChange = e => {
+        if (e.target.files && e.target.files[0]) {
+            let img = e.target.files[0]
+            imageToBase64(img)
+            .then((data) => {
+                setSelectedFile(data)
+                console.log(data)
+            }).catch((error) => {
+                console.log(error)}
+            )
+        }
+    }
+
     return (
         <div className={Style.container}>
             <NavigationBar />
@@ -63,23 +82,23 @@ function NewPlant() {
                     <hr />
                     <Form.Group className="mb-2">
                         <Form.Label>Plant Name</Form.Label>
-                        <Form.Control type="text" name="name" placeholder="name" />
+                        <Form.Control type="text" name="name" placeholder="name" required />
                     </Form.Group>
                     <Form.Group className="mb-2">
                         <Form.Label>Plant Type</Form.Label>
-                        <Form.Control type="text" name="type" placeholder="type" />
+                        <Form.Control type="text" name="type" placeholder="type" required />
                     </Form.Group>
                     <Form.Group className="mb-2">
                         <Form.Label>Plant Description</Form.Label>
-                        <Form.Control type="text" name="description" placeholder="description" />
+                        <Form.Control type="text" name="description" placeholder="description" required />
                     </Form.Group>
                     <Form.Group className="mb-2">
                         <Form.Label>Plant Image</Form.Label>
-                        <Form.Control type="text" name="image" placeholder="image" />
+                        <Form.Control type="file" onChange={onImageChange} name="image" placeholder="image" required />
                     </Form.Group>
                     <Form.Group className="mb-2">
                         <Form.Label>Plant Water Frequency</Form.Label>
-                        <Form.Select type="text" name="waterFrequency" placeholder="water frequency" aria-label="Default select example">
+                        <Form.Select type="text" name="waterFrequency" placeholder="water frequency" aria-label="Default select example" required>
                             <option>Open this select menu</option>
                             <option value="daily">Daily</option>
                             <option value="weekly">Weekly</option>
@@ -89,7 +108,7 @@ function NewPlant() {
                     </Form.Group>
                     <Form.Group className="mb-2">
                         <Form.Label>Plant Shade</Form.Label>
-                        <Form.Select type="text" name="shade" aria-label="Default select example">
+                        <Form.Select type="text" name="shade" aria-label="Default select example" required>
                             <option>Open this select menu</option>
                             <option value="full sun">Full Sun</option>
                             <option value="partial shade">Partial Shade</option>
