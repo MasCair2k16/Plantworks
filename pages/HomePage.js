@@ -10,7 +10,7 @@ function HomePage() {
       <div className={Style.homeContainer}>
           <div>
             <div className={Style.container}>
-              <h1 className={Style.title}>Discover <br></br> your plant's <br></br>  potential</h1>
+              <h1 className={Style.title}>Discover <br></br> your plant&apos;s <br></br>  potential</h1>
               {/* <h1 style={{backgroundColor: 'grey'}}>IMAGE</h1> */}
             </div>
             <div className={Style.description}>
