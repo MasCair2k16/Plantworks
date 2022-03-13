@@ -34,8 +34,100 @@
   height: 10rem;
   width: 17rem;
   margin-bottom: 2rem;
-  padding: 2rem;
+  margin: 0 1rem 2rem 1rem;
+  padding: 1.5rem;
   background-color: #f8f9fa;
   border-radius: .5rem;
   border: 1px solid #70707025;
 }
+
+/* Phone Screens */
+@media only screen and (min-width: 320px) {
+  .homeContainer {
+    margin: 1rem 1.5rem;
+  }
+  .title {
+    font-size: 3rem;
+  }
+  .steps {
+    padding-top: 3rem;
+    justify-content: center;
+  }
+  .stepBox {
+    height: 7rem;
+    padding: 1rem 1rem 5rem;
+  }
+}
+
+/* Ipad, tablet Screens */
+@media only screen and (min-width: 481px) {
+  .homeContainer {
+    margin: 2rem;
+  }
+  .steps {
+    justify-content: center;
+  }
+  .stepBox {
+    width: 11rem;
+    height: 8rem;
+  }
+}
+
+/* Laptops, small Screens */
+@media only screen and (min-width: 688px) {
+  .homeContainer {
+    margin: 4rem 5rem;
+  }
+  .steps {
+    justify-content: center;
+  }
+  .stepBox {
+    width: 26vw;
+    height: 8rem;
+  }
+}
+
+/* Desktops and Large Screens */
+@media only screen and (min-width: 1165px) {
+  .title {
+    font-size: 4rem;
+  }
+  .homeContainer {
+    margin: 4rem 10rem;
+  }
+  .steps {
+    display: flex;
+    padding-top: 7rem;
+    flex-wrap: wrap;
+  }
+  .stepBox {
+    height: 10rem;
+    width: 14vw;
+    margin-bottom: 2rem;
+    padding: 1.5rem;
+  }
+}
+
+/* Desktops and Large Screens */
+@media only screen and (min-width: 1663px) {
+  .title {
+    font-size: 4rem;
+  }
+  .homeContainer {
+    margin: 4rem 12rem;
+  }
+  .steps {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    padding-top: 7rem;
+    flex-wrap: wrap;
+  }
+  .stepBox {
+    height: 10rem;
+    width: 17vw;
+    margin-bottom: 2rem;
+    padding: 1.5rem;
+  }
+}
+
